@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.car.mapper.RoleInfoMapper">
+  <resultMap id="BaseResultMap" type="com.example.car.model.RoleInfo">
+    <!--@mbg.generated-->
+    <!--@Table role_info-->
+    <id column="id" property="id" />
+    <result column="role_name" property="roleName" />
+    <result column="create_time" property="createTime" />
+    <result column="update_time" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, role_name, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <include refid="Base_Column_List" />
+    from role_info
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from role_info
+    where id = #{id}
+  </delete>
+  <insert id="insert" parameterType="com.example.car.model.RoleInfo">
+    <!--@mbg.generated-->
+    insert into role_info (id, role_name, create_time, update_time)
+    values (#{id}, #{roleName}, #{createTime}, #{updateTime})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.car.model.RoleInfo">
+    <!--@mbg.generated-->
+    insert into role_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="roleName != null">
+        role_name,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id},
+      </if>
+      <if test="roleName != null">
+        #{roleName},
+      </if>
+      <if test="createTime != null">
+        #{createTime},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.car.model.RoleInfo">
+    <!--@mbg.generated-->
+    update role_info
+    <set>
+      <if test="roleName != null">
+        role_name = #{roleName},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.car.model.RoleInfo">
+    <!--@mbg.generated-->
+    update role_info
+    set role_name = #{roleName},
+      create_time = #{createTime},
+      update_time = #{updateTime}
+    where id = #{id}
+  </update>
+</mapper>

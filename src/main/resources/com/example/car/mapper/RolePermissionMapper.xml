@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.car.mapper.RolePermissionMapper">
+  <resultMap id="BaseResultMap" type="com.example.car.model.RolePermission">
+    <!--@mbg.generated-->
+    <!--@Table role_permission-->
+    <id column="id" property="id" />
+    <result column="role_id" property="roleId" />
+    <result column="permission_id" property="permissionId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, role_id, permission_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <include refid="Base_Column_List" />
+    from role_permission
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from role_permission
+    where id = #{id}
+  </delete>
+  <insert id="insert" parameterType="com.example.car.model.RolePermission">
+    <!--@mbg.generated-->
+    insert into role_permission (id, role_id, permission_id)
+    values (#{id}, #{roleId}, #{permissionId})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.car.model.RolePermission">
+    <!--@mbg.generated-->
+    insert into role_permission
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="roleId != null">
+        role_id,
+      </if>
+      <if test="permissionId != null">
+        permission_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id},
+      </if>
+      <if test="roleId != null">
+        #{roleId},
+      </if>
+      <if test="permissionId != null">
+        #{permissionId},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.car.model.RolePermission">
+    <!--@mbg.generated-->
+    update role_permission
+    <set>
+      <if test="roleId != null">
+        role_id = #{roleId},
+      </if>
+      <if test="permissionId != null">
+        permission_id = #{permissionId},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.car.model.RolePermission">
+    <!--@mbg.generated-->
+    update role_permission
+    set role_id = #{roleId},
+      permission_id = #{permissionId}
+    where id = #{id}
+  </update>
+</mapper>

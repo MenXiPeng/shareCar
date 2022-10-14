@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.car.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.example.car.model.User">
+    <!--@mbg.generated-->
+    <!--@Table `user`-->
+    <id column="id" property="id" />
+    <result column="user_id" property="userId" />
+    <result column="name" property="name" />
+    <result column="username" property="username" />
+    <result column="password" property="password" />
+    <result column="age" property="age" />
+    <result column="sex" property="sex" />
+    <result column="address" property="address" />
+    <result column="guarantee_info" property="guaranteeInfo" />
+    <result column="car_no" property="carNo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, user_id, `name`, username, `password`, age, sex, address, guarantee_info, car_no
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <include refid="Base_Column_List" />
+    from `user`
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from `user`
+    where id = #{id}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.example.car.model.User" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into `user` (user_id, `name`, username, `password`, age, sex, address,
+      guarantee_info, car_no)
+    values (#{userId}, #{name}, #{username}, #{password}, #{age}, #{sex}, #{address},
+      #{guaranteeInfo}, #{carNo})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.example.car.model.User" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into `user`
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="password != null">
+        `password`,
+      </if>
+      <if test="age != null">
+        age,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="guaranteeInfo != null">
+        guarantee_info,
+      </if>
+      <if test="carNo != null">
+        car_no,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId},
+      </if>
+      <if test="name != null">
+        #{name},
+      </if>
+      <if test="username != null">
+        #{username},
+      </if>
+      <if test="password != null">
+        #{password},
+      </if>
+      <if test="age != null">
+        #{age},
+      </if>
+      <if test="sex != null">
+        #{sex},
+      </if>
+      <if test="address != null">
+        #{address},
+      </if>
+      <if test="guaranteeInfo != null">
+        #{guaranteeInfo},
+      </if>
+      <if test="carNo != null">
+        #{carNo},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.car.model.User">
+    <!--@mbg.generated-->
+    update `user`
+    <set>
+      <if test="userId != null">
+        user_id = #{userId},
+      </if>
+      <if test="name != null">
+        `name` = #{name},
+      </if>
+      <if test="username != null">
+        username = #{username},
+      </if>
+      <if test="password != null">
+        `password` = #{password},
+      </if>
+      <if test="age != null">
+        age = #{age},
+      </if>
+      <if test="sex != null">
+        sex = #{sex},
+      </if>
+      <if test="address != null">
+        address = #{address},
+      </if>
+      <if test="guaranteeInfo != null">
+        guarantee_info = #{guaranteeInfo},
+      </if>
+      <if test="carNo != null">
+        car_no = #{carNo},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.car.model.User">
+    <!--@mbg.generated-->
+    update `user`
+    set user_id = #{userId},
+      `name` = #{name},
+      username = #{username},
+      `password` = #{password},
+      age = #{age},
+      sex = #{sex},
+      address = #{address},
+      guarantee_info = #{guaranteeInfo},
+      car_no = #{carNo}
+    where id = #{id}
+  </update>
+</mapper>

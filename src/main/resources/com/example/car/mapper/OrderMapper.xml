@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.car.mapper.OrderMapper">
+  <resultMap id="BaseResultMap" type="com.example.car.model.Order">
+    <!--@mbg.generated-->
+    <!--@Table `order`-->
+    <id column="id" property="id" />
+    <result column="order_id" property="orderId" />
+    <result column="user_id" property="userId" />
+    <result column="username" property="username" />
+    <result column="car_id" property="carId" />
+    <result column="prices" property="prices" />
+    <result column="total_prices" property="totalPrices" />
+    <result column="order_time" property="orderTime" />
+    <result column="return_time" property="returnTime" />
+    <result column="status" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, order_id, user_id, username, car_id, prices, total_prices, order_time, return_time,
+    `status`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <include refid="Base_Column_List" />
+    from `order`
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from `order`
+    where id = #{id}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.example.car.model.Order" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into `order` (order_id, user_id, username, car_id, prices, total_prices,
+      order_time, return_time, `status`)
+    values (#{orderId}, #{userId}, #{username}, #{carId}, #{prices}, #{totalPrices},
+      #{orderTime}, #{returnTime}, #{status})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.example.car.model.Order" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into `order`
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        order_id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="carId != null">
+        car_id,
+      </if>
+      <if test="prices != null">
+        prices,
+      </if>
+      <if test="totalPrices != null">
+        total_prices,
+      </if>
+      <if test="orderTime != null">
+        order_time,
+      </if>
+      <if test="returnTime != null">
+        return_time,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        #{orderId},
+      </if>
+      <if test="userId != null">
+        #{userId},
+      </if>
+      <if test="username != null">
+        #{username},
+      </if>
+      <if test="carId != null">
+        #{carId},
+      </if>
+      <if test="prices != null">
+        #{prices},
+      </if>
+      <if test="totalPrices != null">
+        #{totalPrices},
+      </if>
+      <if test="orderTime != null">
+        #{orderTime},
+      </if>
+      <if test="returnTime != null">
+        #{returnTime},
+      </if>
+      <if test="status != null">
+        #{status},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.car.model.Order">
+    <!--@mbg.generated-->
+    update `order`
+    <set>
+      <if test="orderId != null">
+        order_id = #{orderId},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId},
+      </if>
+      <if test="username != null">
+        username = #{username},
+      </if>
+      <if test="carId != null">
+        car_id = #{carId},
+      </if>
+      <if test="prices != null">
+        prices = #{prices},
+      </if>
+      <if test="totalPrices != null">
+        total_prices = #{totalPrices},
+      </if>
+      <if test="orderTime != null">
+        order_time = #{orderTime},
+      </if>
+      <if test="returnTime != null">
+        return_time = #{returnTime},
+      </if>
+      <if test="status != null">
+        `status` = #{status},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.car.model.Order">
+    <!--@mbg.generated-->
+    update `order`
+    set order_id = #{orderId},
+      user_id = #{userId},
+      username = #{username},
+      car_id = #{carId},
+      prices = #{prices},
+      total_prices = #{totalPrices},
+      order_time = #{orderTime},
+      return_time = #{returnTime},
+      `status` = #{status}
+    where id = #{id}
+  </update>
+</mapper>

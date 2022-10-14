@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.car.mapper.WebsiteNoticeMapper">
+  <resultMap id="BaseResultMap" type="com.example.car.model.WebsiteNotice">
+    <!--@mbg.generated-->
+    <!--@Table website_notice-->
+    <id column="id" property="id" />
+    <result column="creator_id" property="creatorId" />
+    <result column="info" property="info" />
+    <result column="create_time" property="createTime" />
+    <result column="update_time" property="updateTime" />
+    <result column="edit_id" property="editId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, creator_id, info, create_time, update_time, edit_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <include refid="Base_Column_List" />
+    from website_notice
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from website_notice
+    where id = #{id}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.example.car.model.WebsiteNotice" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into website_notice (creator_id, info, create_time, update_time, edit_id)
+    values (#{creatorId}, #{info}, #{createTime}, #{updateTime}, #{editId})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.example.car.model.WebsiteNotice" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into website_notice
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="creatorId != null">
+        creator_id,
+      </if>
+      <if test="info != null">
+        info,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="editId != null">
+        edit_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="creatorId != null">
+        #{creatorId},
+      </if>
+      <if test="info != null">
+        #{info},
+      </if>
+      <if test="createTime != null">
+        #{createTime},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime},
+      </if>
+      <if test="editId != null">
+        #{editId},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.car.model.WebsiteNotice">
+    <!--@mbg.generated-->
+    update website_notice
+    <set>
+      <if test="creatorId != null">
+        creator_id = #{creatorId},
+      </if>
+      <if test="info != null">
+        info = #{info},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime},
+      </if>
+      <if test="editId != null">
+        edit_id = #{editId},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.car.model.WebsiteNotice">
+    <!--@mbg.generated-->
+    update website_notice
+    set creator_id = #{creatorId},
+      info = #{info},
+      create_time = #{createTime},
+      update_time = #{updateTime},
+      edit_id = #{editId}
+    where id = #{id}
+  </update>
+</mapper>

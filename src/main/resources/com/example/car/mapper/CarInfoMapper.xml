@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.car.mapper.CarInfoMapper">
+  <resultMap id="BaseResultMap" type="com.example.car.model.CarInfo">
+    <!--@mbg.generated-->
+    <!--@Table car_info-->
+    <id column="id" property="id" />
+    <result column="car_id" property="carId" />
+    <result column="name" property="name" />
+    <result column="car_num" property="carNum" />
+    <result column="seat_num" property="seatNum" />
+    <result column="brand" property="brand" />
+    <result column="prices" property="prices" />
+    <result column="img" property="img" />
+    <result column="address" property="address" />
+    <result column="status" property="status" />
+    <result column="create_time" property="createTime" />
+    <result column="update_time" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, car_id, `name`, car_num, seat_num, brand, prices, img, address, `status`, create_time,
+    update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <include refid="Base_Column_List" />
+    from car_info
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from car_info
+    where id = #{id}
+  </delete>
+  <insert id="insert" parameterType="com.example.car.model.CarInfo">
+    <!--@mbg.generated-->
+    insert into car_info (id, car_id, `name`, car_num, seat_num, brand, prices, img,
+      address, `status`, create_time, update_time)
+    values (#{id}, #{carId}, #{name}, #{carNum}, #{seatNum}, #{brand}, #{prices}, #{img},
+      #{address}, #{status}, #{createTime}, #{updateTime})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.car.model.CarInfo">
+    <!--@mbg.generated-->
+    insert into car_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="carId != null">
+        car_id,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="carNum != null">
+        car_num,
+      </if>
+      <if test="seatNum != null">
+        seat_num,
+      </if>
+      <if test="brand != null">
+        brand,
+      </if>
+      <if test="prices != null">
+        prices,
+      </if>
+      <if test="img != null">
+        img,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id},
+      </if>
+      <if test="carId != null">
+        #{carId},
+      </if>
+      <if test="name != null">
+        #{name},
+      </if>
+      <if test="carNum != null">
+        #{carNum},
+      </if>
+      <if test="seatNum != null">
+        #{seatNum},
+      </if>
+      <if test="brand != null">
+        #{brand},
+      </if>
+      <if test="prices != null">
+        #{prices},
+      </if>
+      <if test="img != null">
+        #{img},
+      </if>
+      <if test="address != null">
+        #{address},
+      </if>
+      <if test="status != null">
+        #{status},
+      </if>
+      <if test="createTime != null">
+        #{createTime},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.car.model.CarInfo">
+    <!--@mbg.generated-->
+    update car_info
+    <set>
+      <if test="carId != null">
+        car_id = #{carId},
+      </if>
+      <if test="name != null">
+        `name` = #{name},
+      </if>
+      <if test="carNum != null">
+        car_num = #{carNum},
+      </if>
+      <if test="seatNum != null">
+        seat_num = #{seatNum},
+      </if>
+      <if test="brand != null">
+        brand = #{brand},
+      </if>
+      <if test="prices != null">
+        prices = #{prices},
+      </if>
+      <if test="img != null">
+        img = #{img},
+      </if>
+      <if test="address != null">
+        address = #{address},
+      </if>
+      <if test="status != null">
+        `status` = #{status},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.car.model.CarInfo">
+    <!--@mbg.generated-->
+    update car_info
+    set car_id = #{carId},
+      `name` = #{name},
+      car_num = #{carNum},
+      seat_num = #{seatNum},
+      brand = #{brand},
+      prices = #{prices},
+      img = #{img},
+      address = #{address},
+      `status` = #{status},
+      create_time = #{createTime},
+      update_time = #{updateTime}
+    where id = #{id}
+  </update>
+</mapper>
